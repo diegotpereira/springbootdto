@@ -1,5 +1,7 @@
 package br.com.java.springbootdto.controle;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +26,7 @@ public class UsuarioControle {
     
     // Salvando o objeto com auxilio do serviço
     @PostMapping
-    public ResponseEntity<UsuarioRespostaDTO> salvar(@RequestBody UsuarioDTO dto) {
+    public ResponseEntity<UsuarioRespostaDTO> salvar(@RequestBody @Valid UsuarioDTO dto) {
            
         Usuario usuario = usuarioServico.salvar(dto.transformaParaObjeto());
 
